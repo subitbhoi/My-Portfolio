@@ -1,7 +1,3 @@
 export default function Home() {
-  return (
-    <main>
-      Portfolio Home
-    </main>
-  );
+  return <main className="pt-20">Portfolio Home</main>;
 }
