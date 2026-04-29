@@ -23,5 +23,10 @@ export default function Typewriter({ words }: TypewriterProps) {
     }
     return () => clearTimeout(timeout);
   }, [charIndex, index, words]);
-  return <span>{text}</span>;
+  return (
+    <span className="inline-block min-w-[200px]">
+      {text}
+      {/* <span className="animate-pulse">|</span> */}
+    </span>
+  );
 }

@@ -1,7 +1,10 @@
+"use client";
+
 import Image from "next/image";
 import profileImage from "@/assets/images/profile3.png";
 import Typewriter from "@/components/Typewriter";
 import Background from "@/components/Background";
+import { motion } from "framer-motion";
 
 export default function Hero() {
   const words = [
@@ -15,7 +18,12 @@ export default function Hero() {
     <section className="relative w-full min-h-screen flex items-center justify-center px-6">
       <Background />
       <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-10 backdrop-blur-xl bg-white/30 dark:bg-white/5 border border-white/20 rounded-2xl p-8 shadow-xl">
-        <div className="flex flex-col justify-center gap-6 order-2 md:order-1 items-center md:items-start text-center md:text-left">
+        <motion.div
+          className="flex flex-col justify-center gap-6 order-2 md:order-1 items-center md:items-start text-center md:text-left"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
           <h1 className="text-4xl md:text-6xl font-bold leading-tight">
             Hi, I&apos;m{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500">
@@ -30,24 +38,41 @@ export default function Hero() {
             web applications with modern technologies.
           </p>
           <div className="flex gap-4">
-            <button className="px-6 py-3 rounded-lg bg-blue-600 text-white shadow-lg shadow-blue-500/30 hover:shadow-blue-500/60 transition duration-300">
+            <motion.button
+              className="px-6 py-3 rounded-lg bg-blue-600 text-white shadow-lg shadow-blue-500/30 hover:shadow-blue-500/60 transition duration-300"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.8 }}
+            >
               View Projects
-            </button>
-            <button className="px-6 py-3 rounded-lg border border-gray-300 dark:border-gray-600 hover:bg-white/20 transition duration-300">
+            </motion.button>
+            <motion.button
+              className="px-6 py-3 rounded-lg border border-gray-300 dark:border-gray-600 hover:bg-white/20 transition duration-300"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.8 }}
+            >
               Contact Me
-            </button>
+            </motion.button>
           </div>
-        </div>
-        <div className="flex items-center justify-center order-1 md:order-2">
-          <div className="w-64 h-64 backdrop-blur-xl bg-white/30 dark:bg-white/5 border border-white/20 rounded-2xl shadow-xl flex items-center justify-center">
-            <Image
-              src={profileImage}
-              alt="Hero"
-              fill
-              className="w-full h-full object-cover"
-            />
+        </motion.div>
+        <motion.div
+          className="flex items-center justify-center order-1 md:order-2 group"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 0.99, scale: 0.99 }}
+          transition={{ duration: 0.8 }}
+        >
+          <div className="relative w-64 h-64 flex items-center justify-center group">
+            <div className="absolute inset-0 rounded-full bg-blue-500/40 blur-3xl transition duration-300 group-hover:bg-blue-500/60"></div>
+            <div className="absolute inset-0 rounded-full bg-blue-500/40 blur-3xl transition duration-300 group-hover:bg-blue-500/60"></div>
+            <div className="relative z-10 w-full h-full rounded-2xl backdrop-blur-xl bg-white/10 border border-white/20 shadow-xl overflow-hidden ransition duration-300 hover:scale-105">
+              <Image
+                src="/profile.png"
+                alt="Profile"
+                fill
+                className="object-cover"
+              />
+            </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
