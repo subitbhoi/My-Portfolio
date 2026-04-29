@@ -1,6 +1,7 @@
 import Image from "next/image";
 import profileImage from "@/assets/images/profile3.png";
 import Typewriter from "@/components/Typewriter";
+import Background from "@/components/Background";
 
 export default function Hero() {
   const words = [
@@ -11,7 +12,8 @@ export default function Hero() {
   ];
 
   return (
-    <section className="w-full min-h-screen flex items-center justify-center px-6 bg-gradient-to-br from-white via-gray-100 to-gray-200 dark:from-black dark:via-gray-900 dark:to-black mx-auto md:mx-0">
+    <section className="relative w-full min-h-screen flex items-center justify-center px-6">
+      <Background />
       <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-10 backdrop-blur-xl bg-white/30 dark:bg-white/5 border border-white/20 rounded-2xl p-8 shadow-xl">
         <div className="flex flex-col justify-center gap-6 order-2 md:order-1 items-center md:items-start text-center md:text-left">
           <h1 className="text-4xl md:text-6xl font-bold leading-tight">
