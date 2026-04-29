@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import profileImage from "@/assets/images/profile3.png";
 import Typewriter from "@/components/Typewriter";
 import Background from "@/components/Background";
 import { motion } from "framer-motion";
@@ -15,7 +14,7 @@ export default function Hero() {
   ];
 
   return (
-    <section className="relative w-full min-h-screen flex items-center justify-center px-6">
+    <section className="relative w-full min-h-screen flex items-center justify-center px-6 p-8 md:p-12">
       <Background />
       <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-10 backdrop-blur-xl bg-white/30 dark:bg-white/5 border border-white/20 rounded-2xl p-8 shadow-xl">
         <motion.div
@@ -24,34 +23,34 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="text-4xl md:text-6xl font-bold leading-tight">
+          <h1 className="text-4xl md:text-6xl font-bold leading-tight tracking-tight">
             Hi, I&apos;m{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500">
+            <span className="bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
               Subit
             </span>
           </h1>
-          <h2 className="text-xl md:text-2xl text-gray-600 dark:text-gray-300">
+          <h2 className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 font-medium">
             <Typewriter words={words} />
           </h2>
-          <p className="text-gray-600 dark:text-gray-400 max-w-md">
+          <p className="text-gray-600 dark:text-gray-400 max-w-md leading-relaxed">
             Passionate about building beautiful, responsive, and user-friendly
             web applications with modern technologies.
           </p>
+          <div className="w-12 h-[2px] bg-gradient-to-r from-blue-500 to-purple-500"></div>
           <div className="flex gap-4">
-            <motion.button
-              className="px-6 py-3 rounded-lg bg-blue-600 text-white shadow-lg shadow-blue-500/30 hover:shadow-blue-500/60 transition duration-300"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.8 }}
-            >
-              View Projects
-            </motion.button>
-            <motion.button
-              className="px-6 py-3 rounded-lg border border-gray-300 dark:border-gray-600 hover:bg-white/20 transition duration-300"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.8 }}
-            >
-              Contact Me
-            </motion.button>
+            <div className="flex gap-4 mt-2">
+              <a href="#projects">
+                <button className="px-6 py-3 rounded-lg bg-blue-600 text-white shadow-lg shadow-blue-500/30 hover:shadow-blue-500/60 hover:scale-105 transition duration-300">
+                  View Projects
+                </button>
+              </a>
+
+              <a href="#contact">
+                <button className="px-6 py-3 rounded-lg border border-gray-300 dark:border-gray-600 hover:bg-white/20 hover:scale-105 transition duration-300">
+                  Contact Me
+                </button>
+              </a>
+            </div>
           </div>
         </motion.div>
         <motion.div
